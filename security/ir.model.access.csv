@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_erp_partner,erp_partner,model_erp_partner,base.group_user,1,1,1,1
+access_erp_product,erp_product,model_erp_product,base.group_user,1,1,1,1
+access_erp_sale_order,erp_sale_order,model_erp_sale_order,base.group_user,1,1,1,1
+access_erp_purchase_order,erp_purchase_order,model_erp_purchase_order,base.group_user,1,1,1,1

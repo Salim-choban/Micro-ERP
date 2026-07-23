@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    
+    <record id="view_erp_sale_order_list" model="ir.ui.view">
+        <field name="name">erp.sale.order.list</field>
+        <field name="model">erp.sale.order</field>
+        <field name="arch" type="xml">
+            <list>
+                <field name="name"/>
+                <field name="partner_id"/>
+                <field name="date_order"/>
+                <field name="total_amount"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_erp_sale_order_form" model="ir.ui.view">
+        <field name="name">erp.sale.order.form</field>
+        <field name="model">erp.sale.order</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+
+                    <group>
+                        <field name="name"/>
+                        <field name="partner_id"/>
+                        <field name="date_order"/>
+                    </group>
+
+                    <notebook>
+                        <page string="Products">
+                            <field name="order_line">
+                                <list editable="bottom">
+                                    <field name="product_id"/>
+                                    <field name="quantity"/>
+                                    <field name="price_unit"/>
+                                    <field name="price_subtotal"/>
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+
+                    <group>
+                        <field name="total_amount" readonly="1"/>
+                    </group>
+
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+  
+    <record id="action_erp_sale_order" model="ir.actions.act_window">
+        <field name="name">Sale Orders</field>
+        <field name="res_model">erp.sale.order</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+   
+    <menuitem id="menu_erp_root"
+              name="Micro ERP"/>
+
+    <menuitem id="menu_erp_sales"
+              name="Sales"
+              parent="menu_erp_root"/>
+
+    <menuitem id="menu_erp_sale_orders"
+              name="Sale Orders"
+              parent="menu_erp_sales"
+              action="action_erp_sale_order"/>
+
+</odoo>
